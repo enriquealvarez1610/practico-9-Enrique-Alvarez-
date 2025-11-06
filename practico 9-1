@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+float POTEN(float x, float y) {
+    float resultado;
+    resultado = pow(x, y);
+    return resultado;
+}
+
+int main() {
+    float base, exponente, res;
+
+    cout << "Ingrese la base: ";
+    cin >> base;
+
+    cout << "Ingrese el exponente: ";
+    cin >> exponente;
+
+    res = POTEN(base, exponente);
+
+    cout << "El resultado de " << base << "^" << exponente << " es: " << res << endl;
+
+    return 0;
+}
