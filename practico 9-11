@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+void LITERAL(float r) {
+    int entero = (int)r;
+    int decimal = (int)((r - entero) * 100 + 0.5);
+
+    if (entero >= 1000) { cout << "un mil "; entero -= 1000; }
+
+    if (entero >= 900) { cout << "novecientos "; entero -= 900; }
+    else if (entero >= 800) { cout << "ochocientos "; entero -= 800; }
+    else if (entero >= 700) { cout << "setecientos "; entero -= 700; }
+    else if (entero >= 600) { cout << "seiscientos "; entero -= 600; }
+    else if (entero >= 500) { cout << "quinientos "; entero -= 500; }
+    else if (entero >= 400) { cout << "cuatrocientos "; entero -= 400; }
+    else if (entero >= 300) { cout << "trescientos "; entero -= 300; }
+    else if (entero >= 200) { cout << "doscientos "; entero -= 200; }
+    else if (entero >= 100) { cout << "cien "; entero -= 100; }
+
+    if (entero >= 90) { cout << "noventa "; entero -= 90; }
+    else if (entero >= 80) { cout << "ochenta "; entero -= 80; }
+    else if (entero >= 70) { cout << "setenta "; entero -= 70; }
+    else if (entero >= 60) { cout << "sesenta "; entero -= 60; }
+    else if (entero >= 50) { cout << "cincuenta "; entero -= 50; }
+    else if (entero >= 40) { cout << "cuarenta "; entero -= 40; }
+    else if (entero >= 30) { cout << "treinta "; entero -= 30; }
+    else if (entero >= 20) { cout << "veinte "; entero -= 20; }
+    else if (entero == 15) { cout << "quince "; entero = 0; }
+    else if (entero == 10) { cout << "diez "; entero = 0; }
+
+    if (entero == 9) cout << "nueve ";
+    else if (entero == 8) cout << "ocho ";
+    else if (entero == 7) cout << "siete ";
+    else if (entero == 6) cout << "seis ";
+    else if (entero == 5) cout << "cinco ";
+    else if (entero == 4) cout << "cuatro ";
+    else if (entero == 3) cout << "tres ";
+    else if (entero == 2) cout << "dos ";
+    else if (entero == 1) cout << "uno ";
+
+    cout << decimal << "/100 bolivianos" << endl;
+}
+
+int main() {
+    float r;
+    cout << "Ingrese el monto: Bs ";
+    cin >> r;
+    cout << "En letras: ";
+    LITERAL(r);
+    return 0;
+}
