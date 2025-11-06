@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+bool bisiesto(int a) {
+    return (a % 4 == 0 && a % 100 != 0) || (a % 400 == 0);
+}
+
+int diasMes(int m, int a) {
+    if (m == 2)
+        return bisiesto(a) ? 29 : 28;
+    else if (m == 4 || m == 6 || m == 9 || m == 11)
+        return 30;
+    else
+        return 31;
+}
+
+int diasDesdeInicio(int d, int m, int a) {
+    int total = d;
+    for (int i = 1; i < m; i++)
+        total += diasMes(i, a);
+    for (int j = 1; j < a; j++)
+        total += bisiesto(j) ? 366 : 365;
+    return total;
+}
+
+void DIAS_ENTRE_FECHAS(int d1, int m1, int a1, int d2, int m2, int a2) {
+    int total1 = diasDesdeInicio(d1, m1, a1);
+    int total2 = diasDesdeInicio(d2, m2, a2);
+    int diferencia = total2 - total1;
+
+    if (diferencia < 0) diferencia = -diferencia;
+
+    cout << "Dias transcurridos: " << diferencia << endl;
+}
+
+int main() {
+    int d1, m1, a1, d2, m2, a2;
+
+    cout << "Ingrese primera fecha (dia mes anio): ";
+    cin >> d1 >> m1 >> a1;
+
+    cout << "Ingrese segunda fecha (dia mes anio): ";
+    cin >> d2 >> m2 >> a2;
+
+    DIAS_ENTRE_FECHAS(d1, m1, a1, d2, m2, a2);
+
+    return 0;
+}
