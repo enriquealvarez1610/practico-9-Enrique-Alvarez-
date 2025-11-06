@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int FAC(int n) {
+    int f = 1;
+    for (int i = 1; i <= n; i++) {
+        f = f * i;
+    }
+    return f;
+}
+
+int main() {
+    int n, r;
+    float C;
+
+    cout << "Ingrese n: ";
+    cin >> n;
+    cout << "Ingrese r: ";
+    cin >> r;
+
+    C = (float)FAC(n) / (FAC(r) * FAC(n - r));
+
+    cout << "El numero combinatorio C(" << n << "," << r << ") es: " << C << endl;
+
+    return 0;
+}
