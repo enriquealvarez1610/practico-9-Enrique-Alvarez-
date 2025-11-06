@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+void SISTEMA(float A, float B, float C, float D, float E, float F, float &X, float &Y) {
+    float det = A * E - B * D;
+    if (det != 0) {
+        X = (B * F - C * E) / det;
+        Y = (C * D - A * F) / det;
+    } else {
+        X = 0;
+        Y = 0;
+        cout << "No tiene solucion unica." << endl;
+    }
+}
+
+int main() {
+    float A, B, C, D, E, F, X, Y;
+
+    cout << "Ingrese A, B, C: ";
+    cin >> A >> B >> C;
+    cout << "Ingrese D, E, F: ";
+    cin >> D >> E >> F;
+
+    SISTEMA(A, B, C, D, E, F, X, Y);
+
+    cout << "x = " << X << endl;
+    cout << "y = " << Y << endl;
+
+    return 0;
+}
